@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký phỏng vấn Luxshare ICT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            font-size: 12px;
+        }
+
+        .ladi-wraper {
+            margin: 0 auto;
+            width: 420px;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .ladi-container {
+            position: relative;
+            width: 100%;
+        }
+
+        /* Header Section với background image thực tế */
+        .ladi-section {
+            height: 950px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .ladi-section-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url("https://w.ladicdn.com/s768x757/6463b2c8954d0e0012e14dd4/121675552_420728759321736_3381288627591654934_n-20230627190926-rwvuu.jpg");
+            background-size: auto 100%;
+            background-origin: content-box;
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        }
+
+        /* Logo Luxshare */
+        .ladi-image {
+            position: absolute;
+            width: 200px;
+            height: 59.1716px;
+            top: 4.9142px;
+            left: 107.25px;
+        }
+
+        .ladi-image-background {
+            background-image: url("https://w.ladicdn.com/s550x400/6463b2c8954d0e0012e14dd4/20210401155916_5164-20230627190658-c5ncj.png");
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: cover;
+            background-attachment: scroll;
+            background-origin: content-box;
+            position: absolute;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Header contact info */
+        .header-contact {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #666;
+            font-size: 11px;
+            line-height: 1.4;
+            z-index: 10;
+        }
+
+        .header-contact p {
+            margin: 2px 0;
+        }
+
+        /* Form container với overlay xanh */
+        .ladi-box {
+            width: 401.5px;
+            height: 850px;
+            top: 145.394px;
+            left: 9.25px;
+            position: absolute;
+            border-radius: 0px;
+            background-color: rgba(81, 130, 33, 0.87);
+            opacity: 0.69;
+        }
+
+        /* Form styling */
+        .ladi-form {
+            width: 326.859px;
+            height: 750px;
+            top: 246.604px;
+            left: 46.5703px;
+            position: absolute;
+            font-size: 12px;
+            line-height: 1.6;
+            color: rgb(0, 0, 0);
+            overflow-y: auto;
+            padding-right: 5px;
+            padding-bottom: 20px;
+        }
+
+        .ladi-form-item {
+            width: 326px;
+            height: 35px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .ladi-form-item.full-width {
+            width: 326px;
+            height: 80px;
+        }
+
+        .ladi-form-control {
+            width: 100%;
+            height: 100%;
+            padding: 8px 12px;
+            border: 1px solid #f1f3f4;
+            border-radius: 4px;
+            font-size: 12px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .ladi-form-control:focus {
+            outline: none;
+            border-color: #518221;
+        }
+
+        .ladi-form-control::placeholder {
+            color: #000;
+        }
+
+        /* Button styling */
+        .ladi-button {
+            width: 326px;
+            height: 40px;
+            position: relative;
+            margin-top: 20px;
+            background-color: rgb(255, 145, 77);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            display: block;
+        }
+
+        .ladi-button:hover {
+            opacity: 1;
+        }
+
+        .ladi-button .ladi-headline {
+            width: 100%;
+            display: inline-block;
+            word-break: break-word;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.6;
+            color: rgb(241, 243, 244);
+            text-align: center;
+            padding: 12px 0;
+        }
+
+        /* Headlines */
+        .ladi-headline.title {
+            width: 398px;
+            top: 160px;
+            left: 8.25px;
+            position: absolute;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.6;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        .ladi-headline.subtitle {
+            width: 393px;
+            top: 67.0858px;
+            left: 13px;
+            position: absolute;
+            font-size: 11px;
+            font-style: italic;
+            line-height: 1.6;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        /* Lines */
+        .ladi-line {
+            width: 355px;
+            top: 122.086px;
+            left: 29.75px;
+            position: absolute;
+            padding: 8px 0px;
+        }
+
+        .ladi-line-container {
+            border-top: 1px solid rgb(255, 255, 255);
+            border-right: 1px solid rgb(255, 255, 255);
+            border-bottom: 1px solid rgb(255, 255, 255);
+            border-left: 0px !important;
+            height: 1px;
+        }
+
+        /* Second Section */
+        .ladi-section.second {
+            height: auto;
+            min-height: 627px;
+            background-color: #fff;
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .ladi-section.second .ladi-headline {
+            width: 100%;
+            margin-bottom: 15px;
+            position: relative;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.4;
+            color: rgb(89, 89, 89);
+            text-align: left;
+            top: auto;
+            left: auto;
+        }
+
+        .ladi-section.second .ladi-headline.title {
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.2;
+            color: rgb(71, 71, 71);
+            text-align: center;
+            top: auto;
+            left: auto;
+        }
+
+        .ladi-section.second .ladi-line {
+            width: 300px;
+            margin: 20px auto;
+            position: relative;
+            top: auto;
+            left: auto;
+        }
+
+        .ladi-section.second .ladi-line-container {
+            border-top: 1px solid rgb(217, 217, 217);
+            border-right: 1px solid rgb(217, 217, 217);
+            border-bottom: 1px solid rgb(217, 217, 217);
+            border-left: 0px !important;
+        }
+
+        .ladi-section.second .ladi-line.bottom {
+            margin-top: 30px;
+        }
+
+        /* Paragraphs */
+        .ladi-paragraph {
+            width: 100%;
+            display: inline-block;
+            word-break: break-word;
+            font-family: "Open Sans", sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.2;
+            color: rgb(64, 64, 64);
+            text-align: center;
+        }
+
+        .ladi-paragraph.small {
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 1.4;
+        }
+
+        .ladi-paragraph.contact {
+            width: 279px;
+            top: 516px;
+            left: 70.5px;
+            position: absolute;
+        }
+
+        .ladi-paragraph.address {
+            top: 544px;
+            left: 32.5px;
+            position: absolute;
+        }
+
+        .ladi-paragraph.hotline {
+            top: 572px;
+            left: 32.5px;
+            position: absolute;
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background-color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .footer-contact {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+        }
+
+        /* Contact Icons */
+        .contact-icons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 0 40px;
+        }
+
+        .contact-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+
+        .icon-zalo {
+            background-color: white;
+            color: #0068ff;
+            animation-delay: 0s;
+            border: 2px solid #0068ff;
+        }
+
+        .icon-phone {
+            background-color: #25d366;
+            color: white;
+            animation-delay: 1s;
+        }
+
+        .icon-text {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Bounce animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Floating icons at bottom */
+        .floating-icons {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            animation: float 3s ease-in-out infinite;
+            pointer-events: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .floating-zalo {
+            background-color: white;
+            color: #0068ff;
+            animation-delay: 0s;
+            border: 2px solid #0068ff;
+        }
+
+        .floating-phone {
+            background-color: #25d366;
+            animation-delay: 1.5s;
+        }
+
+        /* Float animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Success/Error messages */
+        .message {
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Responsive */
+        @media (max-width: 420px) {
+            .ladi-wraper {
+                width: 100%;
+            }
+            
+            .ladi-section {
+                height: auto;
+                min-height: 757px;
+            }
+            
+            .ladi-section.second {
+                height: auto;
+                min-height: 627px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ladi-wraper">
+        <div class="ladi-container">
+            <!-- Header Section với background image -->
+            <div class="ladi-section">
+                <div class="ladi-section-background"></div>
+                
+                <!-- Logo Luxshare -->
+                <div class="ladi-image">
+                    <div class="ladi-image-background"></div>
+                </div>
+                
+                <!-- Header contact info -->
+                <div class="header-contact">
+                    <p>Địa chỉ: Lô E, Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</p>
+                    <p>Hotline: 0971902395</p>
+                </div>
+                
+                <!-- White line -->
+                <div class="ladi-line">
+                    <div class="ladi-line-container"></div>
+                </div>
+                
+                <!-- Main title -->
+                <div class="ladi-headline title">Đăng ký phỏng vấn</div>
+                <div class="ladi-headline subtitle">Luxshare - ICT</div>
+                
+                <!-- Form container với overlay xanh -->
+                <div class="ladi-box">
+                    <!-- Form -->
+                    <div class="ladi-form">
+                        <div id="success-message" class="message success-message">
+                            ✅ Đăng ký thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất có thể.
+                        </div>
+                        
+                        <div id="error-message" class="message error-message">
+                            ❌ Vui lòng điền đầy đủ thông tin bắt buộc.
+                        </div>
+
+                        <form id="registrationForm">
+                            <div class="ladi-form-item">
+                                <input type="text" class="ladi-form-control" name="fullName" placeholder="Họ và Tên" required>
+                            </div>
+                            
+                            <div class="ladi-form-item">
+                                <input type="tel" class="ladi-form-control" name="phone" placeholder="Số điện thoại" required>
+                            </div>
+                            
+                            <div class="ladi-form-item">
+                                <input type="text" class="ladi-form-control" name="cccd" placeholder="Số CCCD" required>
+                            </div>
+                            
+                            <div class="ladi-form-item">
+                                <select class="ladi-form-control" name="gender" required>
+                                    <option value="">Giới tính</option>
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                </select>
+                            </div>
+                            
+                            <div class="ladi-form-item">
+                                <input type="text" class="ladi-form-control" name="birthDate" placeholder="Ngày sinh" required>
+                            </div>
+                            
+                            <div class="ladi-form-item">
+                                <input type="text" class="ladi-form-control" name="address" placeholder="Địa chỉ thường trú" required>
+                            </div>
+                            
+                            <div class="ladi-form-item">
+                                <input type="text" class="ladi-form-control" name="cccdIssueDate" placeholder="Ngày cấp CCCD (Không Bắt Buộc)">
+                            </div>
+                            
+                            <div class="ladi-form-item">
+                                <input type="text" class="ladi-form-control" name="cccdExpiryDate" placeholder="Ngày hết hạn CCCD (Không Bắt Buộc)">
+                            </div>
+                            
+                            <div class="ladi-form-item">
+                                <select class="ladi-form-control" name="factory" required>
+                                    <option value="">Ứng tuyển nhà xưởng</option>
+                                    <option value="Vân Trung">Vân Trung</option>
+                                    <option value="Quang Châu 1">Quang Châu 1</option>
+                                    <option value="Quang Châu 2">Quang Châu 2</option>
+                                    <option value="Quang Châu 3">Quang Châu 3</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="ladi-button">
+                                <div class="ladi-headline">ĐĂNG KÝ PHỎNG VẤN</div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Section - Thông tin địa điểm -->
+            <div class="ladi-section second">
+                <div class="ladi-headline title">📍 Công ty TNHH Luxshare ICT Việt Nam</div>
+                
+                <div class="ladi-line">
+                    <div class="ladi-line-container"></div>
+                </div>
+                
+                <div class="ladi-headline">Nhà máy Luxshare Vân Trung</div>
+                <div class="ladi-headline">KCN Vân Trung, Xã Vân Trung, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
+                
+                <div class="ladi-headline">Nhà máy Luxshare Quang Châu 1</div>
+                <div class="ladi-headline">Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
+                
+                <div class="ladi-headline">Nhà máy Luxshare Quang Châu 2</div>
+                <div class="ladi-headline">Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
+                
+                <div class="ladi-headline">Nhà máy Luxshare Quang Châu 3</div>
+                <div class="ladi-headline">Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
+                
+                <div class="ladi-line bottom">
+                    <div class="ladi-line-container"></div>
+                </div>
+            </div>
+
+            <!-- Footer Section -->
+            <div class="footer-section">
+                <div class="footer-title">Kết nối với chúng tôi</div>
+                <div class="footer-copyright">© 2016 Công ty TNHH Luxshare - ICT Việt Nam</div>
+                <div class="footer-contact">
+                    <p>Địa chỉ: Lô E, Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</p>
+                    <p>Hotline: 0971902395</p>
+                </div>
+                
+                <div class="contact-icons">
+                    <a href="#" class="contact-icon">
+                        <div class="icon-circle icon-zalo">
+                            <span style="font-weight: bold; font-size: 14px;">Zalo</span>
+                        </div>
+                        <div class="icon-text">Zalo</div>
+                    </a>
+                    <a href="tel:0971902395" class="contact-icon">
+                        <div class="icon-circle icon-phone">📞</div>
+                        <div class="icon-text">Gọi ngay</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Icons -->
+    <div class="floating-icons">
+        <a href="#" class="floating-icon floating-zalo">
+            <span style="font-weight: bold; font-size: 16px;">Zalo</span>
+        </a>
+        <a href="tel:0971902395" class="floating-icon floating-phone">📞</a>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Get form data
+            const formData = new FormData(this);
+            const requiredFields = ['fullName', 'phone', 'cccd', 'gender', 'birthDate', 'address', 'factory'];
+            
+            // Check required fields
+            let isValid = true;
+            for (let field of requiredFields) {
+                if (!formData.get(field)) {
+                    isValid = false;
+                    break;
+                }
+            }
+            
+            if (!isValid) {
+                errorMessage.style.display = 'block';
+                window.scrollTo({top: 0, behavior: 'smooth'});
+                return;
+            }
+            
+            // Convert FormData to object
+            const formDataObj = Object.fromEntries(formData);
+            
+            // Send to Google Cloud API
+            sendToGoogleCloudAPI(formDataObj);
+            
+            // OPTION 1: Save to localStorage (for development/testing)
+            // saveToLocalStorage(formDataObj);
+            
+            // OPTION 2: Send to API endpoint (uncomment and configure)
+            // sendToAPI(formDataObj);
+            
+            // OPTION 3: Send via email (uncomment and configure)
+            // sendViaEmail(formDataObj);
+            
+            // Show success message
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                window.scrollTo({top: 0, behavior: 'smooth'});
+                this.reset();
+                
+                // Log form data for development
+                console.log('Form Data:', formDataObj);
+            }, 500);
+        });
+
+        // OPTION 1: Save to localStorage
+        function saveToLocalStorage(data) {
+            try {
+                const existingData = JSON.parse(localStorage.getItem('luxshareRegistrations') || '[]');
+                const newRegistration = {
+                    ...data,
+                    timestamp: new Date().toISOString(),
+                    id: Date.now()
+                };
+                existingData.push(newRegistration);
+                localStorage.setItem('luxshareRegistrations', JSON.stringify(existingData));
+                console.log('Data saved to localStorage:', newRegistration);
+            } catch (error) {
+                console.error('Error saving to localStorage:', error);
+            }
+        }
+
+        // OPTION 2: Send to API endpoint
+        function sendToAPI(data) {
+            const apiUrl = 'https://your-api-endpoint.com/api/registrations'; // Thay đổi URL này
+            
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // OPTION 3: Send via Email (using EmailJS or similar service)
+        function sendViaEmail(data) {
+            // Cần cài đặt EmailJS hoặc service tương tự
+            // Ví dụ với EmailJS:
+            /*
+            emailjs.send('service_id', 'template_id', {
+                to_name: 'Luxshare HR',
+                from_name: data.fullName,
+                phone: data.phone,
+                cccd: data.cccd,
+                gender: data.gender,
+                birth_date: data.birthDate,
+                address: data.address,
+                factory: data.factory,
+                cccd_issue_date: data.cccdIssueDate || 'Không có',
+                cccd_expiry_date: data.cccdExpiryDate || 'Không có'
+            })
+            .then(function(response) {
+                console.log('Email sent successfully:', response);
+            }, function(error) {
+                console.error('Email send failed:', error);
+            });
+            */
+        }
+
+        // Send to Google Cloud API
+        function sendToGoogleCloudAPI(data) {
+            const apiUrl = 'https://your-google-cloud-ip:3000/api/registrations'; // Thay đổi IP này
+            
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    console.log('Success:', result);
+                    // Show success message
+                    setTimeout(() => {
+                        successMessage.style.display = 'block';
+                        window.scrollTo({top: 0, behavior: 'smooth'});
+                        document.getElementById('registrationForm').reset();
+                    }, 500);
+                } else {
+                    console.error('API Error:', result.message);
+                    errorMessage.textContent = result.message || 'Có lỗi xảy ra. Vui lòng thử lại.';
+                    errorMessage.style.display = 'block';
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                }
+            })
+            .catch(error => {
+                console.error('Network Error:', error);
+                errorMessage.textContent = 'Không thể kết nối đến server. Vui lòng thử lại sau.';
+                errorMessage.style.display = 'block';
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        }
+
+        // Function to view saved data (for development)
+        function viewSavedData() {
+            const data = JSON.parse(localStorage.getItem('luxshareRegistrations') || '[]');
+            console.log('All saved registrations:', data);
+            return data;
+        }
+
+        // Phone number formatting
+        document.querySelector('input[name="phone"]').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) {
+                value = value.substring(0, 10);
+            }
+            e.target.value = value;
+        });
+
+        // CCCD formatting
+        document.querySelector('input[name="cccd"]').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 12) {
+                value = value.substring(0, 12);
+            }
+            e.target.value = value;
+        });
+
+        // Date formatting for mm/dd/yyyy
+        function formatDate(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 8) {
+                value = value.substring(0, 8);
+            }
+            
+            if (value.length >= 4) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4) + '/' + value.substring(4);
+            } else if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2);
+            }
+            
+            input.value = value;
+        }
+
+        // Apply date formatting to all date fields
+        document.querySelector('input[name="birthDate"]').addEventListener('input', function(e) {
+            formatDate(this);
+        });
+
+        document.querySelector('input[name="cccdIssueDate"]').addEventListener('input', function(e) {
+            formatDate(this);
+        });
+
+        document.querySelector('input[name="cccdExpiryDate"]').addEventListener('input', function(e) {
+            formatDate(this);
+        });
+    </script>
+</body>
+</html>
