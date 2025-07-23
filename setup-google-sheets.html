@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Google Sheets - Luxshare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #518221, #6ba62f);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #518221;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .step h3 {
+            margin-top: 0;
+            color: #518221;
+        }
+        .code {
+            background: #f1f3f4;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            padding: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .important {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+        .btn {
+            background: #518221;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #6ba62f;
+        }
+        .btn-secondary {
+            background: #007bff;
+        }
+        .btn-secondary:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔧 Setup Google Sheets cho Luxshare</h1>
+        <p>Hướng dẫn cấu hình Google Sheets tự động lưu dữ liệu đăng ký</p>
+    </div>
+
+    <div class="step">
+        <h3>📋 Bước 1: Chia sẻ Google Sheets</h3>
+        <p>Bạn cần chia sẻ Google Sheets với Service Account email:</p>
+        <div class="code">data-luxshare@expanded-genius-466812-r3.iam.gserviceaccount.com</div>
+        
+        <div class="important">
+            <strong>⚠️ Quan trọng:</strong>
+            <ol>
+                <li>Mở <a href="https://docs.google.com/spreadsheets/d/17NV15AhWty15G9D-YD6zYk1ADTT2rBY2i9LTdmXFj4A/edit" target="_blank">Google Sheets này</a></li>
+                <li>Click nút "Share" (Chia sẻ) ở góc phải trên</li>
+                <li>Nhập email: <strong>data-luxshare@expanded-genius-466812-r3.iam.gserviceaccount.com</strong></li>
+                <li>Chọn quyền: <strong>Editor</strong></li>
+                <li>Click "Send" (Gửi)</li>
+            </ol>
+        </div>
+
+        <a href="https://docs.google.com/spreadsheets/d/17NV15AhWty15G9D-YD6zYk1ADTT2rBY2i9LTdmXFj4A/edit" target="_blank" class="btn">
+            📊 Mở Google Sheets
+        </a>
+    </div>
+
+    <div class="step">
+        <h3>📝 Bước 2: Tạo Sheet với tên đúng</h3>
+        <p>Trong Google Sheets, tạo hoặc đổi tên sheet thành:</p>
+        <div class="code">Registrations</div>
+        <p>Hoặc bạn có thể sử dụng tên sheet mặc định và cập nhật file .env:</p>
+        <div class="code">GOOGLE_SHEET_NAME=Sheet1</div>
+    </div>
+
+    <div class="step">
+        <h3>🧪 Bước 3: Test kết nối</h3>
+        <p>Sau khi chia sẻ Google Sheets, test kết nối:</p>
+        
+        <a href="/test-sheets.html" target="_blank" class="btn btn-secondary">
+            🧪 Test Google Sheets
+        </a>
+        
+        <a href="/api/google-sheets-status" target="_blank" class="btn btn-secondary">
+            📊 Check Status API
+        </a>
+    </div>
+
+    <div class="step">
+        <h3>✅ Bước 4: Xác nhận hoạt động</h3>
+        <p>Khi setup thành công, bạn sẽ thấy:</p>
+        <ul>
+            <li>✅ Google Sheets service initialized (trong console)</li>
+            <li>✅ Headers tự động được tạo trong Google Sheets</li>
+            <li>✅ Dữ liệu đăng ký mới sẽ tự động xuất hiện trong Sheets</li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <h3>🎯 Cách thức hoạt động:</h3>
+        <ol>
+            <li><strong>User điền form</strong> trên website đăng ký</li>
+            <li><strong>Backend nhận dữ liệu</strong> và lưu vào MySQL database</li>
+            <li><strong>Sau khi lưu thành công</strong>, tự động sync lên Google Sheets</li>
+            <li><strong>Admin có thể xem</strong> dữ liệu trên Google Sheets real-time</li>
+        </ol>
+        
+        <p><strong>Lưu ý:</strong> Việc sync Google Sheets không ảnh hưởng đến tốc độ phản hồi cho người dùng.</p>
+    </div>
+
+    <div class="step">
+        <h3>📧 Thông tin Service Account</h3>
+        <div class="code">
+Project ID: expanded-genius-466812-r3
+Service Account: data-luxshare@expanded-genius-466812-r3.iam.gserviceaccount.com
+Spreadsheet ID: 17NV15AhWty15G9D-YD6zYk1ADTT2rBY2i9LTdmXFj4A
+Sheet Name: Registrations (có thể thay đổi)
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>🔧 Troubleshooting</h3>
+        <p><strong>Nếu gặp lỗi "Unable to parse range":</strong></p>
+        <ul>
+            <li>Kiểm tra tên sheet trong Google Sheets</li>
+            <li>Cập nhật GOOGLE_SHEET_NAME trong file .env</li>
+            <li>Restart server backend</li>
+        </ul>
+        
+        <p><strong>Nếu gặp lỗi quyền truy cập:</strong></p>
+        <ul>
+            <li>Đảm bảo đã share Google Sheets với service account email</li>
+            <li>Kiểm tra quyền là "Editor" không phải "Viewer"</li>
+        </ul>
+    </div>
+
+    <script>
+        // Auto refresh status every 10 seconds
+        setInterval(() => {
+            fetch('/api/google-sheets-status')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.googleSheets.initialized) {
+                        // Show success indicator
+                        document.title = '✅ Setup Google Sheets - Luxshare';
+                    }
+                })
+                .catch(console.error);
+        }, 10000);
+    </script>
+</body>
+</html>

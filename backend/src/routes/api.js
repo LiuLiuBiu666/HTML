@@ -58,4 +58,55 @@ router.get('/env-info', (req, res) => {
     });
 });
 
+// Admin endpoints for Google Sheets
+router.post('/sync-google-sheets', RegistrationController.syncToGoogleSheets);
+router.get('/google-sheets-status', RegistrationController.getGoogleSheetsStatus);
+
+// Test endpoint to manually test Google Sheets
+router.post('/test-google-sheets', async (req, res) => {
+    try {
+        const googleSheetsService = require('../services/googleSheetsService');
+        
+        if (!googleSheetsService.isReady()) {
+            return res.status(503).json({
+                success: false,
+                message: 'Google Sheets service not ready',
+                config: googleSheetsService.getConfig()
+            });
+        }
+
+        // Test data
+        const testData = {
+            id: Date.now(),
+            created_at: new Date().toLocaleString('vi-VN'),
+            full_name: 'Test User',
+            phone: '0123456789',
+            cccd: '123456789012',
+            gender: 'Nam',
+            birth_date: '01/01/1990',
+            address: 'Test Address',
+            factory: 'Vân Trung',
+            cccd_issue_date: '01/01/2020',
+            cccd_expiry_date: '01/01/2030'
+        };
+
+        // Try to add test data
+        const result = await googleSheetsService.addRegistration(testData);
+        
+        res.json({
+            success: result.success,
+            message: result.success ? 'Test data added successfully' : 'Failed to add test data',
+            result: result,
+            config: googleSheetsService.getConfig()
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Test failed',
+            error: error.message
+        });
+    }
+});
+
 module.exports = router; 

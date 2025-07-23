@@ -1,18 +1,21 @@
-# Luxshare ICT - Interview Registration Website
+# 🏭 Luxshare Interview Registration System
 
-🏭 Website đăng ký phỏng vấn cho công ty Luxshare ICT Việt Nam
+Hệ thống đăng ký phỏng vấn trực tuyến cho Công ty TNHH Luxshare ICT Việt Nam với tích hợp Google Sheets tự động.
 
-## 🌟 Tính năng
+## 🌟 Tính năng chính
 
-- ✅ Form đăng ký phỏng vấn trực tuyến
-- 📱 Responsive design (mobile-first)
-- 🎨 Giao diện chuyên nghiệp với logo và màu sắc công ty
-- 📧 Tích hợp API backend để lưu trữ dữ liệu
-- 🏗️ Hỗ trợ multiple factories (Vân Trung, Quang Châu 1, 2, 3)
+- ✅ **Form đăng ký responsive** - Giao diện mobile-friendly
+- 🗄️ **MySQL Database** - Lưu trữ dữ liệu ứng viên
+- 📊 **Google Sheets Integration** - Tự động sync dữ liệu
+- � **Auto-sync** - Dữ liệu tự động đồng bộ sau khi lưu database
+- 📱 **Contact Integration** - Zalo và hotline direct links
+- 🧪 **Health Monitoring** - System health check và debugging tools
 
 ## 🚀 Demo
 
-Truy cập website: [https://html-three-delta.vercel.app](https://html-three-delta.vercel.app)
+- **Frontend Form**: [Live Demo](http://localhost:3000/index.html)
+- **System Health**: [Health Check](http://localhost:3000/system-health-check.html)
+- **Admin Panel**: [Google Sheets Admin](http://localhost:3000/admin-google-sheets.html)
 
 ## 📋 Thông tin form
 

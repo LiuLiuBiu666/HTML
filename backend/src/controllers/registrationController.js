@@ -1,4 +1,5 @@
 const { getConnection } = require('../config/database');
+const googleSheetsService = require('../services/googleSheetsService');
 
 class RegistrationController {
     // Create new registration
@@ -87,6 +88,24 @@ class RegistrationController {
                     req.get('User-Agent')
                 ]
             );
+
+            // Get the inserted record for Google Sheets sync
+            const [insertedRecord] = await connection.execute(
+                'SELECT * FROM registrations WHERE id = ?',
+                [result.insertId]
+            );
+
+            // Auto-sync to Google Sheets (non-blocking)
+            if (insertedRecord.length > 0) {
+                setImmediate(async () => {
+                    try {
+                        await googleSheetsService.addRegistration(insertedRecord[0]);
+                    } catch (syncError) {
+                        console.error('Google Sheets sync error:', syncError.message);
+                        // Sync errors don't affect user experience
+                    }
+                });
+            }
 
             // Send email notification (optional)
             // await sendEmailNotification(req.body);
@@ -189,6 +208,61 @@ class RegistrationController {
             if (connection) {
                 connection.release();
             }
+        }
+    }
+
+    // Sync database to Google Sheets (Admin endpoint)
+    static async syncToGoogleSheets(req, res) {
+        try {
+            if (!googleSheetsService.isReady()) {
+                return res.status(503).json({
+                    success: false,
+                    message: 'Google Sheets service not configured'
+                });
+            }
+
+            const result = await googleSheetsService.syncFromDatabase(getConnection);
+            
+            if (result.success) {
+                res.json({
+                    success: true,
+                    message: `Successfully synced ${result.count || 0} registrations to Google Sheets`
+                });
+            } else {
+                res.status(500).json({
+                    success: false,
+                    message: result.error || 'Sync failed'
+                });
+            }
+        } catch (error) {
+            console.error('Sync to Google Sheets error:', error);
+            res.status(500).json({
+                success: false,
+                message: 'Có lỗi xảy ra khi đồng bộ Google Sheets'
+            });
+        }
+    }
+
+    // Get Google Sheets status (Admin endpoint)
+    static async getGoogleSheetsStatus(req, res) {
+        try {
+            const config = googleSheetsService.getConfig();
+            const sheetsData = config.initialized ? await googleSheetsService.getRegistrations() : null;
+
+            res.json({
+                success: true,
+                googleSheets: {
+                    ...config,
+                    recordCount: sheetsData?.count || 0,
+                    lastSync: new Date().toISOString()
+                }
+            });
+        } catch (error) {
+            console.error('Google Sheets status error:', error);
+            res.status(500).json({
+                success: false,
+                message: 'Có lỗi xảy ra khi kiểm tra Google Sheets'
+            });
         }
     }
 }
