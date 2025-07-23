@@ -43,7 +43,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            top: 0;
+            top: -200px;
             left: 0;
             background-image: url("https://w.ladicdn.com/s768x757/6463b2c8954d0e0012e14dd4/121675552_420728759321736_3381288627591654934_n-20230627190926-rwvuu.jpg");
             background-size: auto 100%;
@@ -56,10 +56,10 @@
         /* Logo Luxshare */
         .ladi-image {
             position: absolute;
-            width: 200px;
-            height: 59.1716px;
-            top: 4.9142px;
-            left: 107.25px;
+            width: 240px;
+            height: 60px;
+            top: 20px;
+            left: 130px;
         }
 
         .ladi-image-background {
@@ -71,8 +71,8 @@
             background-origin: content-box;
             position: absolute;
             margin: 0 auto;
-            width: 100%;
-            height: 100%;
+            width: 80%;
+            height: 80%;
             pointer-events: none;
         }
 
@@ -95,10 +95,10 @@
 
         /* Form container với overlay xanh */
         .ladi-box {
-            width: 340px;
-            height: 700px;
-            top: 180px;
-            left: 40px;
+            width: 350px;
+            height: 550px;
+            top: 200px;
+            left: 38px;
             position: absolute;
             border-radius: 8px;
             background-color: rgba(81, 130, 33, 0.87);
@@ -110,7 +110,7 @@
             width: 300px;
             height: 620px;
             top: 40px;
-            left: 20px;
+            left: 30px;
             position: absolute;
             font-size: 12px;
             line-height: 1.6;
@@ -150,7 +150,7 @@
         }
 
         .ladi-form-control::placeholder {
-            color: #888;
+            color: #3b3b3b;
         }
 
         /* Button styling */
@@ -231,15 +231,16 @@
         /* Second Section */
         .ladi-section.second {
             height: auto;
-            min-height: 627px;
+            min-height: 450px;
             background-color: #fff;
             position: relative;
-            padding: 40px 20px;
+            padding: 20px 20px 20px; /* Giảm padding bottom từ 40px xuống 20px */
+            margin-top: -150px; /* Di chuyển section lên trên */
         }
 
         .ladi-section.second .ladi-headline {
             width: 100%;
-            margin-bottom: 15px;
+            margin-bottom: 8px; /* Giảm từ 15px xuống 8px để viết gần nhau hơn */
             position: relative;
             font-size: 14px;
             font-weight: bold;
@@ -260,6 +261,24 @@
             text-align: center;
             top: auto;
             left: auto;
+            position: relative;
+            top: -2px; /* Di chuyển dòng chữ lên trên */
+        }
+
+        /* Style cho tên nhà máy - in đậm */
+        .ladi-section.second .ladi-headline.factory-name {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 2px; /* Khoảng cách nhỏ với địa chỉ */
+        }
+
+        /* Style cho địa chỉ - in thường */
+        .ladi-section.second .ladi-headline.factory-address {
+            font-weight: normal;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px; /* Khoảng cách với nhà máy tiếp theo */
         }
 
         .ladi-section.second .ladi-line {
@@ -278,7 +297,7 @@
         }
 
         .ladi-section.second .ladi-line.bottom {
-            margin-top: 30px;
+            margin-top: 15px; /* Giảm từ 30px xuống 15px */
         }
 
         /* Paragraphs */
@@ -322,22 +341,28 @@
         /* Footer Section */
         .footer-section {
             background-color: #fff;
-            padding: 30px 20px;
+            padding: 10px 20px 20px; /* Tăng padding top */
             text-align: center;
             border-top: 1px solid #eee;
+            position: relative;
         }
 
         .footer-title {
             font-size: 16px;
             font-weight: bold;
             color: #333;
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* Giảm khoảng cách xuống gần như không có */
         }
 
         .footer-copyright {
-            font-size: 12px;
+            font-size: 14px;
             color: #666;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: -5px; /* Giảm margin-top xuống */
+            position: relative;
+            top: -10px; /* Di chuyển lên trên nhiều hơn nữa */
+            font-weight: 500;
+            z-index: 10;
         }
 
         .footer-contact {
@@ -345,6 +370,8 @@
             color: #666;
             line-height: 1.4;
             margin-bottom: 20px;
+            position: relative;
+            top: -30px; /* Di chuyển toàn bộ phần contact lên trên nhiều hơn */
         }
 
         .footer-contact p {
@@ -596,17 +623,17 @@
                     <div class="ladi-line-container"></div>
                 </div>
                 
-                <div class="ladi-headline">Nhà máy Luxshare Vân Trung</div>
-                <div class="ladi-headline">KCN Vân Trung, Xã Vân Trung, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
+                <div class="ladi-headline factory-name">Nhà máy Luxshare Vân Trung</div>
+                <div class="ladi-headline factory-address">KCN Vân Trung, Xã Vân Trung, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
                 
-                <div class="ladi-headline">Nhà máy Luxshare Quang Châu 1</div>
-                <div class="ladi-headline">Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
+                <div class="ladi-headline factory-name">Nhà máy Luxshare Quang Châu 1</div>
+                <div class="ladi-headline factory-address">Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
                 
-                <div class="ladi-headline">Nhà máy Luxshare Quang Châu 2</div>
-                <div class="ladi-headline">Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
+                <div class="ladi-headline factory-name">Nhà máy Luxshare Quang Châu 2</div>
+                <div class="ladi-headline factory-address">Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
                 
-                <div class="ladi-headline">Nhà máy Luxshare Quang Châu 3</div>
-                <div class="ladi-headline">Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
+                <div class="ladi-headline factory-name">Nhà máy Luxshare Quang Châu 3</div>
+                <div class="ladi-headline factory-address">Khu công nghiệp Quang Châu, Xã Quang Châu, Huyện Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
                 
                 <div class="ladi-line bottom">
                     <div class="ladi-line-container"></div>
@@ -623,7 +650,7 @@
                 </div>
                 
                 <div class="contact-icons">
-                    <a href="#" class="contact-icon">
+                    <a href="https://zalo.me/0971902395" class="contact-icon" target="_blank">
                         <div class="icon-circle icon-zalo">
                             <span style="font-weight: bold; font-size: 14px;">Zalo</span>
                         </div>
@@ -640,7 +667,7 @@
 
     <!-- Floating Icons -->
     <div class="floating-icons">
-        <a href="#" class="floating-icon floating-zalo">
+        <a href="https://zalo.me/0971902395" class="floating-icon floating-zalo" target="_blank">
             <span style="font-weight: bold; font-size: 16px;">Zalo</span>
         </a>
         <a href="tel:0971902395" class="floating-icon floating-phone">📞</a>
